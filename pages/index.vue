@@ -4,8 +4,10 @@
     <div class="articles">
       <div class="article" v-for="article in articles" :key="article.id">
         <div class="article-inner">
-          <nuxt-link :to="{ name: 'slug', params: { slug: article.slug } }">
+          <figure>
             <img :src="require(`~/assets/resources/${article.img}`)" alt="" />
+          </figure>
+          <nuxt-link :to="{ name: 'slug', params: { slug: article.slug } }">
             <div class="detail">
               <h3>{{ article.title }}</h3>
               <p>{{ article.description }}</p>
