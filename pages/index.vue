@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <h2>Latest post</h2>
+    <h2>Latest Posts</h2>
     <div class="articles">
       <div class="article" v-for="article in articles" :key="article.id">
         <div class="article-inner">
