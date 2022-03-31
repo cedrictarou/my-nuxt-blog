@@ -14,8 +14,10 @@
     "nuxt": "^2.14.12"
   },
   "devDependencies": {
+    "@aceforth/nuxt-optimized-images": "^1.4.0",
     "push-dir": "^0.4.1",
     "sass": "^1.49.9",
-    "sass-loader": "^10.2.1"
+    "sass-loader": "^10.2.1",
+    "webp-loader": "^0.6.0"
   }
 }

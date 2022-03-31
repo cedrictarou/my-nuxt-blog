@@ -1,5 +1,7 @@
 <template>
   <article>
+    <article-image :img="article.img" />
+    <tag-collection :tags="article.tags" />
     <nuxt-content :document="article" />
     <page-nation :prev="prev" :next="next" />
   </article>
@@ -7,12 +9,14 @@
 
 <script>
 import PageNation from "../components/PageNation.vue";
+import ArticleImage from "../components/ArticleImage.vue";
+import TagCollection from "../components/TagCollection.vue";
 export default {
-  components: { PageNation },
+  components: { PageNation, ArticleImage, TagCollection },
   async asyncData({ $content, params }) {
     const article = await $content("blog", params.slug).fetch();
     const [prev, next] = await $content("blog")
-      .only(["title", "slug"])
+      .only(["title", "slug", "tags"])
       .sortBy("title", "asc")
       .surround(params.slug, { before: 1, after: 1 })
       .fetch();

@@ -12,6 +12,7 @@
               <h3>{{ article.title }}</h3>
               <p>{{ article.description }}</p>
             </div>
+            <tag-collection :tags="article.tags" />
           </nuxt-link>
         </div>
       </div>
@@ -20,10 +21,12 @@
 </template>
 
 <script>
+import TagCollection from "../components/TagCollection.vue";
 export default {
+  components: { TagCollection },
   async asyncData({ $content, params }) {
     const articles = await $content("blog", params.slug)
-      .only(["title", "description", "img", "slug"])
+      .only(["title", "description", "img", "slug", "tags"])
       .sortBy("createdAt", "asc")
       .fetch();
     return { articles };
