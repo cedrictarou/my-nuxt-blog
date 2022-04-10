@@ -1,10 +1,49 @@
 <template>
-  <article>
-    <article-image :img="article.img" />
-    <tag-collection :tags="article.tags" />
-    <nuxt-content :document="article" />
-    <page-nation :prev="prev" :next="next" />
-  </article>
+  <section class="text-gray-600 body-font">
+    <div
+      class="
+        container
+        mx-auto
+        flex
+        px-5
+        py-24
+        md:flex-row
+        flex-col
+        items-center
+      "
+    >
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+        <article-image
+          :img="article.img"
+          class="object-cover object-center rounded"
+        />
+      </div>
+
+      <div
+        class="
+          lg:flex-grow
+          md:w-1/2
+          lg:pl-24
+          md:pl-16
+          flex flex-col
+          md:items-start md:text-left
+          items-center
+          text-center
+        "
+      >
+        <tag-collection :tags="article.tags" />
+        <h1
+          class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"
+        >
+          {{ article.title }}
+        </h1>
+        <nuxt-content :document="article" class="mb-8 leading-relaxed" />
+      </div>
+    </div>
+    <footer>
+      <page-nation :prev="prev" :next="next" />
+    </footer>
+  </section>
 </template>
 
 <script>
@@ -26,15 +65,4 @@ export default {
 </script>
 
 <style>
-article {
-  display: block;
-  margin: 0 auto;
-  padding: 50px 30px;
-  max-width: 800px;
-}
-h1 {
-  font-size: 28px;
-  font-weight: 900;
-  margin-bottom: 30px;
-}
 </style>

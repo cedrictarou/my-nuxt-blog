@@ -28,12 +28,10 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    '@aceforth/nuxt-optimized-images',
-],
+  buildModules: ["@aceforth/nuxt-optimized-images", "@nuxtjs/tailwindcss"],
   optimizedImages: {
-    optimizeImages: true, 
-    optimizeImagesInDev:true
+    optimizeImages: true,
+    optimizeImagesInDev: true,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
